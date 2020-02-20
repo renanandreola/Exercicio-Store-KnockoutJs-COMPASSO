@@ -1,0 +1,32 @@
+{
+  "name": "Loja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon -e * server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanandreola/Loja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renanandreola/Loja/issues"
+  },
+  "homepage": "https://github.com/renanandreola/Loja#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "md5": "^2.2.1",
+    "mongoose": "^5.9.1",
+    "nodemon": "^2.0.2",
+    "nunjucks": "^3.2.0",
+    "restify": "^8.5.1",
+    "useful-nunjucks-filters": "^0.1.3"
+  }
+}

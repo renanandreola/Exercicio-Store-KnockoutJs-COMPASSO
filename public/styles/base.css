@@ -1,0 +1,17 @@
+body nav.navbar {
+    width: 100%;
+    background: black;
+}
+
+nav div.collapse {
+    background: black;
+}
+
+nav ul li a.menu {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+nav div img.logo {
+    padding-right: 52%;
+}

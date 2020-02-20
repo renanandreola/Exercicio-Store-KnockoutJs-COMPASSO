@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ptbr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Loja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    {% block styles %}
+    {% endblock %}
+  </head>
+ <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> 
+       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+         <img class="logo" src="https://cdn2.unrealengine.com/Unreal+Engine%2Feg-logo-filled-1255x1272-0eb9d144a0f981d1cbaaa1eb957de7a3207b31bb.png" height="45px" alt="">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="menu nav-link" href="/">PI</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu nav-link" href="/loja">LOJA</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu nav-link" href="/maisjogos">MAIS JOGOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu nav-link" href="/comunidade">COMUNIDADE</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu nav-link" href="/suporte">SUPORTE</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu nav-link" href="/register">CADASTRE-SE</a>
+          </li>
+        </ul>
+      </div> 
+     </nav>
+    
+    
+    
+    {% block content %}
+    {% endblock %}
+    <!-- RODAPÉ -->
+    <footer class="page-footer font-small stylish-color-dark pt-4" style="background-image: url()">
+        <hr>
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">MELHORES JOGOS</h5>
+                    <p>FAÇA SEU DONWLOAD</p>
+                </div>
+                <div class="col-md-4 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">VISITE NOSSA COMUNIDADE</h5>
+                    <p>DESCONTOS SEMANAIS</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Siga-nos nas redes sociais</h5>
+                    <!-- Links das redes sociais -->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="https://pt-br.facebook.com/">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/login?lang=pt">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/?hl=pt-br">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center text-muted">
+            <p>Redes sociais</p>
+        </div>
+        <!-- Social buttons -->
+        <!-- Imagns das redes sociais na footer -->
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a href="https://pt-br.facebook.com/" class="btn-floating btn-fb mx-3">
+                    <i class="fab fa-facebook-f">Facebook</i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://twitter.com/login?lang=pt" class="btn-floating btn-tw mx-3">
+                    <i class="fab fa-twitter">Twitter</i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://plus.google.com/?hl=pt-BR" class="btn-floating btn-gplus mx-3">
+                    <i class="fab fa-google-plus-g">Google Plus</i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://br.linkedin.com" class="btn-floating btn-li mx-3">
+                    <i class="fab fa-linkedin-in">Linkedin</i>
+                </a>
+            </li>
+        </ul>
+        <!-- Parte inferior da footer -->
+        <div class="text-center text-muted">
+            <p class="small">EpicGames <i class="fas fa-copyright"></i> Todos direitos reservados</p>
+        </div>
+</div>
+  </footer>
+
+  <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" charset="utf-8"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/base.js" charset="utf-8"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>
