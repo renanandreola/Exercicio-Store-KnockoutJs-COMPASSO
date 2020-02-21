@@ -8,3 +8,15 @@ h1.display-4 {
     color: black;
     font-weight: bold;
 }
+
+body div.count { 
+background-image: url(https://www.lefthudson.com/wp-content/uploads/2019/11/war-wallpaper-best-of-world-war-3-hd-games-4k-wallpapers-backgrounds-s-and-combination-of-war-wallpaper.jpg);
+}
+
+h1.display-4 {
+    color: white;
+}
+
+form label {
+    color: white;
+}

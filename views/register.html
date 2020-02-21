@@ -2,36 +2,44 @@
 
 {% block content %}
 <!-- PÁGINA DE CADASTRO DO CLIENTE -->
-<br>
+
 <div class="count float-right">
 <h1 class="display-4 text-center">NOVO USUÁRIO</h1>
 <br>
 <form onsubmit="send(event)">
     <div class="row">
+        <div class="col-12" data-bind="with: alert">
+            <div class="alert" data-bind="text: msgAlert,
+                                          css: {'alert-danger': (type == 'danger'), 'alert-info': (type == 'info')},
+                                          visible: show">
+
+            </div>
+        </div> 
         <div class="col-12">
             <label>Nome</label>
-            <input type="text" name="" value="" id="name" class="form-control"  data-bind="value: userName">
+            <input type="text" name=""  id="name" class="form-control"  data-bind="value: userName">
         </div> 
         <div class="col-12">
             <label>Sobrenome</label>
-            <input type="text" name="" value="" id="lastname" class="form-control" data-bind="value: userLastName">
+            <input type="text" name="" id="lastname" class="form-control" data-bind="value: userLastName">
         </div>
         <div class="col-6">
             <label>E-mail</label>
-            <input type="email" name="" value="" id="email" class="form-control" data-bind="value: userEmail">
+            <input type="email" name=""  id="email" class="form-control" data-bind="value: userEmail">
         </div>
         <div class="col-6">
             <label>Telefone</label>
-            <input type="num" name="" value="" id="phone" class="form-control" data-bind="value: userPhone">
+            <input type="num" name="" id="phone" class="form-control" data-bind="value: userPhone">
         </div>
 
         <div class="col-3">
             <label>CEP</label>
-            <input type="num" name="" value="" id="cep" class="form-control">
+            <input type="num" name="" id="cep" class="form-control" data-bind="value: userCep">
         </div>
         <div class="col-3">
             <label>Estado</label>
-            <select class="form-control" type="text" name="" value="" id="state" class="form-control">
+            <select class="form-control" id="state" class="form-control" data-bind="options: userState">
+               <!--
                 <option value="AC">Selecione seu estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -61,47 +69,47 @@
                 <option value="SE">Sergipe</option>
                 <option value="TO">Tocantins</option>
                 <option value="EX">Estrangeiro</option>
+                -->
             </select>
         </div>
         <div class="col-3">
             <label>Cidade</label>
-            <input class="form-control" type="text" name="" value="" id="city" class="form-control">
+            <input class="form-control" type="text" name=""  id="city" class="form-control" data-bind="value: userCity">
         </div>
         <div class="col-3">
             <label>Bairro</label>
-            <input type="text" name="" value="" id="neighborhood" class="form-control">
+            <input type="text" name="" id="neighborhood" class="form-control" data-bind="value: userNeighborhood">
         </div>
         <div class="col-4">
             <label>Endereço</label>
-            <input type="text" name="" value="" id="address" class="form-control">
+            <input type="text" name="" id="address" class="form-control" data-bind="value: userAddress">
         </div>
         <div class="col-4">
             <label>Número</label>
-            <input type="text" name="" value="" id="number" class="form-control">
+            <input type="text" name=""  id="number" class="form-control" data-bind="value: userNumber">
         </div>
         <div class="col-4">
             <label>Complemento</label>
-            <input type="text" name="" value="" id="complement" class="form-control">
+            <input type="text" name="" value="" id="complement" class="form-control" data-bind="value: userComplement">
         </div>
         <div class="col-6">
             <label>Senha</label>
-            <input type="password" name="" value="" id="password" class="form-control">
+            <input type="password" name="" id="password" class="form-control" data-bind="value: userPassword">
         </div>
         <div class="col-6">
             <label>Confirmar senha</label>
-            <input type="password" name="" value="" id="confirmpassword" class="form-control">
+            <input type="password" name=""  id="confirmpassword" class="form-control" data-bind="value: userConfirmPassword">
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-12 mt-4 d-flex justify-content-center">
-            <button type="submit" class="btn btn-dark col-2">Enviar</button>
+            <button type="submit" class="btn btn-dark col-2" data-bind="click: submitForm">Enviar</button>
             <!-- <a href="/index" class="btn btn-outline-success btn-block float-left col-2" name="button">Voltar</a> -->
         </div>
     </div>
 </form>
 <br>
-<hr>
 </div>
 
 {% endblock %}
