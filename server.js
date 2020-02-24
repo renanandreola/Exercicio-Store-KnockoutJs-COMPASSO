@@ -109,14 +109,14 @@ app.post('/client', (req, res) => {
 });
 */
 
-app.post('/client', (req, res) => {
-  var client = new Clients(req.body);
-  client.password = md5(client.password);
-  client.save((err, client) => {
-    console.info(client.name + ' salvo');
-    res.send('ok');
-  })
-});
+//app.post('/client', (req, res) => {
+  //var client = new Clients(req.body);
+  //client.password = md5(client.password);
+  //client.save((err, client) => {
+    //console.info(client.name + ' salvo');
+    //res.send('ok');
+  //})
+//});
 /*
 app.post('/clinet/', function (req, res, next) {
   var db = require('../db');
