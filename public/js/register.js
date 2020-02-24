@@ -294,7 +294,7 @@ $(document).ready(function() {
 
 
 
-    
+
     // DATA BINDS - KNOCKOUT JS
 
     //data-bind - text - show words
@@ -336,6 +336,12 @@ function formViewModel() {
   this.userPassword = ko.observable("");
 
   this.userConfirmPassword = ko.observable("");
+
+  this.tableUsers = ko.observableArray([{tableName: this.userName, 
+                                         tableLastName: this.userLastName, 
+                                         tableEmail: this.userEmail, 
+                                         tablePhone: this.userPhone, 
+                                         tableCity: this.userCity }]);
 
   
 
@@ -412,10 +418,10 @@ this.submitForm = function(){
 
   else{
     this.alert({show: true, msgAlert: "Formulário de preenchido, falta o banco de dados kkk", type: "info"})
-    
+  }
   }
  }
-}
+
 
 
 
