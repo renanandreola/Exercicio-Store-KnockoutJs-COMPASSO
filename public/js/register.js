@@ -315,7 +315,7 @@ function formViewModel() {
 
   this.userCep = ko.observable("");
 
-  this.userState = ko.observableArray(['Selecione', 
+  this.userState = ko.observableArray([null, 
                                        'Acre', 'Alagoas','Amapá','Amazonas','Bahia','Ceará',
                                        'Distrito Federal','Espírito Santo','Goiás','Maranhão',
                                        'Mato Grosso','Mato Grosso do Sul','Minas Gerais','Pará',
