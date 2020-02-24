@@ -23,14 +23,14 @@ const ClientsSchema = require('./Schemas/Clients');
 const md5 = require('md5');
 
 
-//const MongoClient = require('mongodb').MongoClient;
-//const uri = "mongodb+srv://renan:renan@cluster0-wtjhx.mongodb.net/devices?retryWrites=true&w=majority";
-//const client = new MongoClient(uri, { useNewUrlParser: true });
-//client.connect(err => {
-  //const collection = client.db("test").collection("devices");
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://renan:renan@cluster0-wtjhx.mongodb.net/store?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
   // perform actions on the collection object
-  //client.close();
-//});
+  client.close();
+});
 
 
 
@@ -94,7 +94,8 @@ app.get('/', (req, res) => {
 
 
 // REQUISICAO PARA O POST NO BANCO DE DADOS
-app.post('/register', (req, res) => {
+/*
+app.post('/client', (req, res) => {
   var client = new Clients(req.body);
 
   if (client.password && client.password.length > 0) {
@@ -104,9 +105,34 @@ app.post('/register', (req, res) => {
   client.save((err, client) => {
     console.info(client.name + client.lastname + ' FOI SALVO');
     res.send('ok');
+  )
+});
+*/
+
+app.post('/client', (req, res) => {
+  var client = new Clients(req.body);
+  client.password = md5(client.password);
+  client.save((err, client) => {
+    console.info(client.name + ' salvo');
+    res.send('ok');
   })
 });
-
+/*
+app.post('/clinet/', function (req, res, next) {
+  var db = require('../db');
+  var Client = db.Mongoose.model('client', db.ClientSchema, 'client');
+  var newclient = new Client({ name: req.body.name, email: req.body.email });
+  newcustomer.save(function (err) {
+      if (err) {
+          res.status(500).json({ error: err.message });
+          res.end();
+          return;
+      }
+      res.json(newclient);
+      res.end();
+  });
+});
+*/
 // FAZ O LOGIN DO USUARIO
 
 // app.post('/index', (req, res) => {

@@ -5,7 +5,7 @@
 <div class="count float-right">
 <h1 class="display-4 text-center">NOVO USUÁRIO</h1>
 <br>
-<form onsubmit="send(event)">
+<form onsubmit="send(event)" data-bind="submit: submitForm" id="form" method="POST" action="/register">
     <div class="row">
         <div class="col-12" data-bind="with: alert">
             <div class="alert" data-bind="text: msgAlert,
@@ -38,7 +38,7 @@
         <div class="col-3">
             <label>Estado</label>
             <select class="form-control" id="state" class="form-control" data-bind="options: userState">
-               <!--
+               
                 <option value="AC">Selecione seu estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -127,6 +127,7 @@
             <th>Cidade</th>
           </tr>
         </thead>
+        <!--
         <tbody data-bind="foreach: tableUsers">
             <tr>
                 <td style="width: 10px">Foto</td>
@@ -137,6 +138,7 @@
                 <td data-bind="text: tableCity"></td>
             </tr>
         </tbody>
+        -->
       </table>
     </div>
     <!-- /.box-body -->

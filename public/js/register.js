@@ -1,4 +1,6 @@
-/*function send (event) {
+/*
+
+function send (event) {
     event.preventDefault();
 
 // busca valores na página HTML
@@ -93,7 +95,6 @@ if (password !== confirmpassword) {
      toastr["error"]("Senhas incompatíveis");
      return
 }
-
 else {
   var data = {
     name: name,
@@ -108,23 +109,28 @@ else {
     number: number,
     complement: complement,
     password: password
+  } 
+  console.log(data);
+  
 
-  }
-*/
-/*
 // ENVIA DADOS PARA O MONGODB
 $.post('/register', data, function (res) {
-        if(res === 'ok') {
-          toastr["success"]("Cadastro realizado com sucesso!");
-          $('form').trigger('reset');
-        } else {
-          toastr["error"]("Erro: " + res);
-        }
+  if(res === 'ok') {
+    
+    toastr["success"]("Cadastro realizado com sucesso!");
+    $('#form').trigger('reset');
+  } else {
+    
+    toastr["error"]("Erro: " + res);
+   }
 })
 }
-*/
+}
 
-/*
+
+
+
+
 
 // LIMPA CAMPOS DO FORMULÁRIO
 function clear (){
@@ -139,7 +145,6 @@ $("#neighborhood").val("");
 $("#address").val("");
 $("#number").val("");
 $("#complement").val("");
-}
 }
 
 // COMPLETA OS CAMPOS DE ACORDO COM O CEP //
@@ -285,8 +290,8 @@ $(document).ready(function() {
     //     }
     //   })
     // })
-    
     */
+    
     
 
 
@@ -337,12 +342,15 @@ function formViewModel() {
 
   this.userConfirmPassword = ko.observable("");
 
-  this.tableUsers = ko.observableArray([{tableName: this.userName, 
-                                         tableLastName: this.userLastName, 
-                                         tableEmail: this.userEmail, 
-                                         tablePhone: this.userPhone, 
-                                         tableCity: this.userCity }]);
+  
 
+    //this.submitForm = function() {
+      //this.tableUsers = ko.observableArray([{tableName: this.userName, 
+        //tableLastName: this.userLastName, 
+       // tableEmail: this.userEmail, 
+       // tablePhone: this.userPhone, 
+       // tableCity: this.userCity }]);
+  //}
   
 
   // alert de inicio de formulário
@@ -351,6 +359,7 @@ function formViewModel() {
 
   // validação dos campos 
 this.submitForm = function(){
+  event.preventDefault()
   
   if(this.userName() === ""){
    this.alert({show: true, msgAlert: "Preencha seu nome", type: "danger"});
@@ -415,10 +424,40 @@ this.submitForm = function(){
     this.alert({show: true, msgAlert: "Confirme sua senha", type: "danger"});
   return
   }
-
-  else{
-    this.alert({show: true, msgAlert: "Formulário de preenchido, falta o banco de dados kkk", type: "info"})
-  }
+    
+  else {
+      alert("entrou no else");
+      var data = {
+        name: this.userName,
+        lastname: this.userLastName,
+        email: this.userEmail,
+        phone: this.userPhone,
+        cep: this.userPhone,
+        state: this.userState,
+        city: this.userCity,
+        neighborhood: this.userNeighborhood,
+        address: this.userAddress,
+        number: this.userNumber,
+        complement: this.userComplement,
+        password: this.userPassword
+      } 
+      console.log(data);
+      
+    
+    // ENVIA DADOS PARA O MONGODB
+    $.post('/register', data, function (res) {
+          console.log("entrou no post")
+            if(res === 'ok') {
+              console.log("ola")
+              this.alert({show: true, msgAlert: "Cadastro feito com sucesso", type: "info"});
+              $('form').trigger('reset');
+            } else {
+              this.alert({show: true, msgAlert: ("ERRO: "), type: "danger"});
+              console.log("olá2")
+              
+            }
+    })
+    }
   }
  }
 
@@ -429,3 +468,4 @@ this.submitForm = function(){
 
   // Activates knockout.js
   ko.applyBindings(new formViewModel());
+  
