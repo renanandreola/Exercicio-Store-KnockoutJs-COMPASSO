@@ -34,6 +34,10 @@
   //     })
   //  });
 
+
+
+
+
 // Class to represent a row in the seat reservations grid
 function SeatReservation(name, initialMeal) {
   var self = this;
@@ -76,9 +80,21 @@ function indexViewModel() {
       self.seats.push(new SeatReservation("", self.availableMeals[0]));
   }
   self.removeSeat = function(seat) { self.seats.remove(seat) }
+
+
+  // TITLE CARS - GAMES 
+  self.titleWD2 = ko.observable("WHATCH DOGS 2");
+  self.descriptionWD2 = ko.observable("Um jogo de ação em 3ª pessoa, com mundo aberto e ótima interação"
+                                   +  "entre o player e a cidade de São Francisco, na Califórnia, Watch" 
+                                   +  "Dogs 2 PS4 chega bem mais leve e divertido do que sua primeira edição.")
 }
 
+
+
+
+// Activates knockout.js
 ko.applyBindings(new indexViewModel());
+  
 
 
 
