@@ -289,6 +289,12 @@ $(document).ready(function() {
     */
     
 
+
+
+
+
+
+    
     // DATA BINDS - KNOCKOUT JS
 
     //data-bind - text - show words
@@ -330,6 +336,8 @@ function formViewModel() {
   this.userPassword = ko.observable("");
 
   this.userConfirmPassword = ko.observable("");
+
+  
 
   // alert de inicio de formulário
   this.alert = ko.observable({show: true, msgAlert: "Preencha seus dados para se cadastrar", type: "info"})
@@ -404,6 +412,7 @@ this.submitForm = function(){
 
   else{
     this.alert({show: true, msgAlert: "Formulário de preenchido, falta o banco de dados kkk", type: "info"})
+    
   }
  }
 }

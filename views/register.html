@@ -2,7 +2,6 @@
 
 {% block content %}
 <!-- PÁGINA DE CADASTRO DO CLIENTE -->
-
 <div class="count float-right">
 <h1 class="display-4 text-center">NOVO USUÁRIO</h1>
 <br>
@@ -110,7 +109,45 @@
     </div>
 </form>
 <br>
+
+<div class="box">
+    <div class="box-header">
+      <h3 class="box-title d-flex justify-content-center">Lista de Usuários</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10px">Foto</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Cidade</th>
+          </tr>
+        </thead>
+        <tbody id="table-users" data-bind="">
+            <td style="width: 10px">Foto</th>
+            <td data-bind=""></th>
+            <td data-bind=""></th>
+            <td data-bind=""></th>
+            <td data-bind=""></th>
+            <td data-bind=""></th>
+        </tbody>
+      </table>
+    </div>
+    <!-- /.box-body -->
+  </div>
+
+
+
 </div>
+
+
+<br>
+<br>
+
 
 {% endblock %}
 

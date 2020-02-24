@@ -20,3 +20,7 @@ h1.display-4 {
 form label {
     color: white;
 }
+
+div.box {
+    background-color: white;
+}
