@@ -117,9 +117,9 @@ app.post('/client', (req, res) => {
     //res.send('ok');
   //})
 //});
-
-app.post('/client/', function (req, res, next) {
-  var db = require('mongodb+srv://renan:renan@cluster0-wtjhx.mongodb.net/store?retryWrites=true&w=majority');
+/*
+app.post('/clinet/', function (req, res, next) {
+  var db = require('../db');
   var Client = db.Mongoose.model('client', db.ClientSchema, 'client');
   var newclient = new Client({ name: req.body.name, email: req.body.email });
   newcustomer.save(function (err) {
@@ -132,7 +132,7 @@ app.post('/client/', function (req, res, next) {
       res.end();
   });
 });
-
+*/
 // FAZ O LOGIN DO USUARIO
 
 // app.post('/index', (req, res) => {
