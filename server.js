@@ -118,7 +118,7 @@ app.post('/client', (req, res) => {
   //})
 //});
 /*
-app.post('/clinet/', function (req, res, next) {
+app.post('/client/', function (req, res, next) {
   var db = require('../db');
   var Client = db.Mongoose.model('client', db.ClientSchema, 'client');
   var newclient = new Client({ name: req.body.name, email: req.body.email });
