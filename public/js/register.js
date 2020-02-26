@@ -344,15 +344,6 @@ function formViewModel() {
 
   
 
-    //this.submitForm = function() {
-      //this.tableUsers = ko.observableArray([{tableName: this.userName, 
-        //tableLastName: this.userLastName, 
-       // tableEmail: this.userEmail, 
-       // tablePhone: this.userPhone, 
-       // tableCity: this.userCity }]);
-  //}
-  
-
   // alert de inicio de formulário
   this.alert = ko.observable({show: true, msgAlert: "Preencha seus dados para se cadastrar", type: "info"})
 
@@ -360,6 +351,12 @@ function formViewModel() {
   // validação dos campos 
 this.submitForm = function(){
   event.preventDefault()
+
+  this.tableUsers = ko.observableArray([{tableName: this.userName, 
+    tableLastName: this.userLastName, 
+    tableEmail: this.userEmail, 
+    tablePhone: this.userPhone, 
+    tableCity: this.userCity }]);
   
   if(this.userName() === ""){
    this.alert({show: true, msgAlert: "Preencha seu nome", type: "danger"});
@@ -426,7 +423,6 @@ this.submitForm = function(){
   }
     
   else {
-      alert("entrou no else");
       var data = {
         name: this.userName,
         lastname: this.userLastName,
@@ -443,21 +439,27 @@ this.submitForm = function(){
       } 
       console.log(data);
       
-    
-    // ENVIA DADOS PARA O MONGODB
-    $.post('/register', data, function (res) {
-          console.log("entrou no post")
-            if(res === 'ok') {
-              console.log("ola")
-              this.alert({show: true, msgAlert: "Cadastro feito com sucesso", type: "info"});
-              $('form').trigger('reset');
-            } else {
-              this.alert({show: true, msgAlert: ("ERRO: "), type: "danger"});
-              console.log("olá2")
-              
-            }
-    })
-    }
+  /*
+  
+      // ENVIA DADOS PARA O MONGODB
+      $.post('/register', data, function (res) {
+        if(res === 'ok') {
+          alert("oi")
+          toastr["success"]("Produto cadastrado com sucesso!");
+          setTimeout(function(){
+            location.reload();
+          },1500);
+        } else {
+          alert("oi2")
+          toastr["error"]("Erro: " + res);
+       }
+})
+    */
+
+  
+
+
+}
   }
  }
 
