@@ -1,0 +1,61 @@
+{% extends './layouts/base.html' %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/contact.css">
+{% endblock %}
+{% block content %}
+<div class="middle-layout">
+  <div class="list">
+    <h1 class="display-6 text-center">Envie sua mensagem</h1>
+  </div>
+  <hr>
+  <br>
+  <div class="form_send d-flex justify-content-center">
+    <form onsubmit="send(event)">
+        <div class="row">
+          <div class="col-6">
+            <label>Nome</label>
+            <input type="text" name="" value="" id="name" class="form-control">
+          </div>
+          <div class="col-6">
+            <label>Email</label>
+            <input type="text" name="" value="" id="email" class="form-control">
+          </div>
+          <div class="col-12">
+            <label>Mensagem</label>
+            <textarea id="message" class="form-control"></textarea>
+          </div>
+      </div>
+      <br>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-dark mr-4">Enviar</button>
+            <button type="reset" class="btn btn-danger">Limpar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  <br>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+$( function() {
+  $( "#birthday" ).datepicker();
+} );
+</script>
+<script src="/js/contact.js"></script>
+<script src="/js/base.js"></script>
+{% endblock %}

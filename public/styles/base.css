@@ -12,6 +12,23 @@ nav ul li a.menu {
     font-weight: bold;
 }
 
+nav ul li a img.imageCart {
+    height: 40px;
+    width: 40px;
+}
+
 nav div img.logo {
     padding-right: 52%;
+}
+
+footer {
+    background-image: url(https://i.pinimg.com/originals/73/0d/51/730d517afbfe187a3567779d43ed7e06.jpg);
+}
+
+footer ul li a i.socials {
+    color: black;
+}
+
+footer ul li a i.fab {
+    color: black;
 }

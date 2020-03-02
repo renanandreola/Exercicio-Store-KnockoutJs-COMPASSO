@@ -109,17 +109,15 @@
     </div>
 </form>
 <br>
+</div>
 
-<div class="box">
-    <div class="box-header">
-      <h3 class="box-title d-flex justify-content-center">SEUS DADOS</h3>
-    </div>
     <!-- /.box-header -->
-    <div class="box-body no-padding">
+<div class="box-body no-padding">
+    <div class="box">
       <table class="table table-striped">
-        <thead>
+        <thead class="thead-dark">
           <tr>
-            <th style="width: 10px">Foto</th>
+            <th>Foto</th>
             <th>Nome</th>
             <th>Sobrenome</th>
             <th>E-mail</th>
@@ -127,32 +125,22 @@
             <th>Cidade</th>
           </tr>
         </thead>
-        <!--
+        
         <tbody data-bind="foreach: tableUsers">
             <tr>
-                <td style="width: 10px">Foto</td>
-                <td data-bind="text: tableName"></td>
-                <td data-bind="text: tableLastName"></td>
-                <td data-bind="text: tableEmail"></td>
-                <td data-bind="text: tablePhone"></td>
-                <td data-bind="text: tableCity"></td>
+                <td class="table-info" ><img src="https://abrilexame.files.wordpress.com/2018/10/8dicas8.jpg?quality=70&strip=info&w=1000&h=1000" style="width: 30px; height: 30px; border-radius: 20px;" alt=""></td>
+                <td class="table-info" data-bind="text: tableName"></td>
+                <td class="table-info" data-bind="text: tableLastName"></td>
+                <td class="table-info" data-bind="text: tableEmail"></td>
+                <td class="table-info" data-bind="text: tablePhone"></td>
+                <td class="table-info" data-bind="text: tableCity"></td>
             </tr>
         </tbody>
-        -->
+        
       </table>
     </div>
     <!-- /.box-body -->
   </div>
-
-
-
-</div>
-
-
-<br>
-<br>
-
-
 {% endblock %}
 
 {% block title %}
@@ -163,4 +151,5 @@
 
   <script src="/js/register.js" charset="utf-8"></script>
   <link rel="stylesheet" href="styles/register.css">
+  <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
 {% endblock %}

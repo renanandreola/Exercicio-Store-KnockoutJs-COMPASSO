@@ -342,21 +342,19 @@ function formViewModel() {
 
   this.userConfirmPassword = ko.observable("");
 
-  
-
   // alert de inicio de formulário
   this.alert = ko.observable({show: true, msgAlert: "Preencha seus dados para se cadastrar", type: "info"})
 
+  //preenchimento da tabela
+  this.tableUsers = ko.observableArray([{tableName: this.userName, 
+                                         tableLastName: this.userLastName, 
+                                         tableEmail: this.userEmail, 
+                                         tablePhone: this.userPhone, 
+                                         tableCity: this.userCity }]);
 
   // validação dos campos 
 this.submitForm = function(){
-  event.preventDefault()
-
-  this.tableUsers = ko.observableArray([{tableName: this.userName, 
-    tableLastName: this.userLastName, 
-    tableEmail: this.userEmail, 
-    tablePhone: this.userPhone, 
-    tableCity: this.userCity }]);
+  
   
   if(this.userName() === ""){
    this.alert({show: true, msgAlert: "Preencha seu nome", type: "danger"});
@@ -422,50 +420,110 @@ this.submitForm = function(){
   return
   }
     
-  else {
-      var data = {
-        name: this.userName,
-        lastname: this.userLastName,
-        email: this.userEmail,
-        phone: this.userPhone,
-        cep: this.userPhone,
-        state: this.userState,
-        city: this.userCity,
-        neighborhood: this.userNeighborhood,
-        address: this.userAddress,
-        number: this.userNumber,
-        complement: this.userComplement,
-        password: this.userPassword
-      } 
-      console.log(data);
-      
-  /*
+else {
+    var data = {
+      name: this.userName,
+      lastname: this.userLastName,
+      email: this.userEmail,
+      phone: this.userPhone,
+      cep: this.userPhone,
+      state: this.userState,
+      city: this.userCity,
+      neighborhood: this.userNeighborhood,
+      address: this.userAddress,
+      number: this.userNumber,
+      complement: this.userComplement,
+      password: this.userPassword
+    } 
+    console.log(data);
+    //manda email
+    
+    
   
       // ENVIA DADOS PARA O MONGODB
-      $.post('/register', data, function (res) {
-        if(res === 'ok') {
-          alert("oi")
-          toastr["success"]("Produto cadastrado com sucesso!");
-          setTimeout(function(){
-            location.reload();
-          },1500);
-        } else {
-          alert("oi2")
-          toastr["error"]("Erro: " + res);
-       }
-})
-    */
+    $.post('/register', data, function (res) {
+      if(res === 'ok') {
+        alert("oi")
+        toastr["success"]("Produto cadastrado com sucesso!");
+        setTimeout(function(){
+          location.reload();
+        },1500);
+      } else {
+        alert("oi2")
+        toastr["error"]("Erro: " + res);
+      }
+    })
+    
 
-  
-
-
-}
+    }
+   }
   }
+
+
+// COMPLETA OS CAMPOS DE ACORDO COM O CEP //
+
+$(document).ready(function() {
+  function limpa_formulário_cep() {
+      // Limpa valores do formulário de cep.
+      $("#address").val("");
+         $("#neighborhood").val("");
+         $("#city").val("");
+         $("#state").val("");
+         $("#complement").val("");
+  }
+ 
+  //Quando o campo cep perde o foco.
+  $("#cep").keyup(function() {
+ 
+   //Nova variável "cep" somente com dígitos.
+      var cep = $(this).val().replace(/\D/g, '');
+ 
+   //Verifica se campo cep possui valor informado.
+      if (cep.length>="8") {
+ 
+   //Expressão regular para validar o CEP.
+     var validacep = /^[0-9]{8}$/;
+ 
+   //Valida o formato do CEP.
+     if(validacep.test(cep)) {
+ 
+   //Preenche os campos com "..." enquanto consulta webservice.
+   $("#address").val("...");
+   $("#neighborhood").val("...");
+   $("#city").val("...");
+   $("#state").val("...");
+   $("#complement").val("...");
+ 
+ //Consulta o webservice viacep.com.br/
+ $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+   if (!("erro" in dados)) {
+     //Atualiza os campos com os valores da consulta.
+     $("#address").val(dados.logradouro);
+     $("#neighborhood").val(dados.bairro);
+     $("#city").val(dados.localidade);
+     $("#state").val(dados.uf);
+     $("#complement").val(dados.complemento);
+    //end if.
+ } else {
+     //CEP pesquisado não foi encontrado.
+     limpa_formulário_cep();
+     toastr["error"]("CEP é não encontrado");
+     
  }
-
-
-
-
+     });
+ }
+ else {
+     //cep é inválido.
+     limpa_formulário_cep();
+     toastr["error"]("Formato CEP é inválido");
+     
+    }
+ } else {
+       //cep sem valor, limpa formulário.
+       limpa_formulário_cep();
+      }
+  });
+ });
 
 
   // Activates knockout.js

@@ -16,6 +16,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
+const nodemailer = require('nodemailer');
 const restify = require('restify');
 const mongoose = require('mongoose');
 //const MONGODB_URL = 'mongodb+srv://renan:renan@cluster0-wtjhx.mongodb.net/store?retryWrites=true&w=majority';
@@ -79,23 +80,28 @@ app.get('/loja', (req, res) => {
   res.render('loja.html');
 });
 
-app.get('/suporte', (req, res) => {
-  res.render('suporte.html');
+app.get('/contact', (req, res) => {
+  res.render('contact.html');
 });
 
 app.get('/maisjogos', (req, res) => {
   res.render('maisjogos.html');
 });
 
+app.get('/cart', (req, res) => {
+  res.render('cart.html');
+});
+  
 app.get('/', (req, res) => {
   res.render('index.html');
 });
 
 
 
+
 // REQUISICAO PARA O POST NO BANCO DE DADOS
-/*
-app.post('/client', (req, res) => {
+
+app.post('/register', (req, res) => {
   var client = new Clients(req.body);
 
   if (client.password && client.password.length > 0) {
@@ -105,10 +111,12 @@ app.post('/client', (req, res) => {
   client.save((err, client) => {
     console.info(client.name + client.lastname + ' FOI SALVO');
     res.send('ok');
-  )
+  
+  }) 
 });
-*/
 
+
+/*
 app.post('/register', (req, res) => {
   var client = new Clients(req.body);
   client.password = md5(client.password);
@@ -117,6 +125,8 @@ app.post('/register', (req, res) => {
     res.send('ok');
   })
 });
+*/
+
 /*
 app.post('/client/', function (req, res, next) {
   var db = require('../db');
@@ -149,3 +159,101 @@ app.post('/client/', function (req, res, next) {
 //   })
 // });
 
+// envio de email
+// REQUISIÇÃO - CONTATOS
+
+app.get('/contact', (req,res) => {
+  res.render('contact.html');
+});
+
+app.post('/contact', (req, res) => {
+  var contact = new Contacts(req.body);
+
+  contact.save((err, contact) => {
+    console.info('Mensagem recebida de :'+ contact.name);
+    res.send('ok');
+  });
+
+  var email = req.body.email;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'senacerechim2019@gmail.com',
+      pass: 'senacrserechim'
+    }
+  });
+  const mailOptions = {
+    from: 'senacerechim2019@gmail.com',
+    to: email,
+    subject: 'Confirmação de recebimento',
+    text: 'Olá, ' + req.body.name + '. Agradeçemos por entrar em contato'
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+    res.send('ok');
+  });
+});
+
+ app.delete('/contact', (req, res) => {
+  Contacts.findOneAndRemove({_id: req.params.id}, (err, obj) => {
+    if(err) {
+      res.send('error');
+    }
+    res.send('ok');
+  });
+});
+
+app.get('/contact', (req, res) => {
+  Contacts.find((err, contacts) => {
+       res.render('contact.html', {contacts: contacts});
+     });
+ });
+
+
+
+app.post('/contact', (req, res) => {
+  var response = req.body;
+
+  var id = req.body.id;
+  var email = req.body.email;
+  var subject = req.body.subject;
+  var responsa = req.body.response;
+
+
+
+  console.info('Mensagem enviada à: '+ email);
+
+  // response.save((err, response) => {
+  // console.info('Mensagem enviada à: '+ response.email);
+  // res.send('ok');
+  // });
+ 
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'senacerechim2019@gmail.com',
+      pass: 'senacrserechim'
+    }
+  });
+  const mailOptions = {
+    from: 'senacerechim2019@gmail.com',
+    to: email,
+    subject: subject,
+    text: responsa
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+    res.send('ok');
+  });
+});

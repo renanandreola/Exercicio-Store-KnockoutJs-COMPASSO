@@ -1,0 +1,37 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Subtotal</th>
+            
+        </tr>
+    </thead>
+    <tbody data-bind=''>
+        <tr>
+            <td class="table-primary" data-bind="text: cartName">sodfsduf</td>
+            <td class="table-primary" data-bind="text: cartPrice">sfswfd</td>
+            <td class="table-primary" data-bind="text: cartSubtotal">sdfsfd</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Valor total: <span data-bind="text: cartSubtotal"> </span>
+</p>
+<button data-bind=''>Add product</button>
+
+{% endblock %}
+
+{% block title %}
+    Carrinho
+{% endblock %}
+
+{% block script %}
+  <script src="/js/cart.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/cart.css">
+  <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+{% endblock %}

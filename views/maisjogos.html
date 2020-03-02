@@ -4,8 +4,17 @@
 
 
 
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://img.ibxk.com.br/2015/12/04/04194139553197.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title" data-bind="text: nameGame"></h5>
+    <p class="card-text" data-bind="text: descriptionGame"></p>
+    <p class="card-text" data-bind="text: priceGame"></p>
+    <a href="#" class="btn btn-primary float-left">Ver mais</a>
+    <a href="#" class="btn btn-primary float-right" data-bind="click: addToCart">Adicionar ao carrinho</a>
+  </div>
+</div>
 
-<h1>Mais jogos</h1>
 
 
 
@@ -17,6 +26,7 @@
 {% endblock %}
 
 {% block script %}
+  
   <script src="/js/maisjogos.js" charset="utf-8"></script>
   <link rel="stylesheet" href="styles/maisjogos.css">
 {% endblock %}

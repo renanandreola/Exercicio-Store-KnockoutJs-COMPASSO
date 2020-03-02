@@ -34,8 +34,15 @@
   //     })
   //  });
 
+ function showTitle() {
+   this.underCaroussel = ko.observable("Os melhores descontos")
+ }
   
-
+ 
+ 
+ 
+ 
+ ko.applyBindings(new showTitle());
 
 
 

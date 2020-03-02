@@ -31,22 +31,32 @@
             <a class="menu nav-link" href="/comunidade">COMUNIDADE</a>
           </li>
           <li class="nav-item">
-            <a class="menu nav-link" href="/suporte">SUPORTE</a>
+            <a class="menu nav-link" href="/contact">SUPORTE</a>
           </li>
           <li class="nav-item">
             <a class="menu nav-link" href="/register">CADASTRE-SE</a>
+          </li>
+          <li class="nav-item ml-4">
+            <a href="/cart"><img class="imageCart" src="https://images.emojiterra.com/google/android-10/512px/1f6d2.png" alt=""></a>
           </li>
         </ul>
       </div> 
      </nav>
     
-    
-    
+     
+  
+     
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" charset="utf-8"></script>
+       <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       <script src="/js/base.js" charset="utf-8"></script>
+       <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
     {% block content %}
     {% endblock %}
     <!-- RODAPÉ -->
     <footer class="page-footer font-small stylish-color-dark pt-4">
-        <hr>
+    
         <div class="container text-center text-md-left">
             <div class="row">
                 <div class="col-md-4 mx-auto">
@@ -63,13 +73,19 @@
                     <!-- Links das redes sociais -->
                     <ul class="list-unstyled">
                         <li>
-                            <a href="https://pt-br.facebook.com/">Facebook</a>
+                            <a href="https://pt-br.facebook.com/">
+                              <i class="socials">Facebook</i>
+                            </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/login?lang=pt">Twitter</a>
+                            <a href="https://twitter.com/login?lang=pt">
+                              <i class="socials">Twitter</i>
+                            </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/?hl=pt-br">Instagram</a>
+                            <a href="https://www.instagram.com/?hl=pt-br">
+                              <i class="socials">Instagram</i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -83,22 +99,22 @@
         <!-- Imagns das redes sociais na footer -->
         <ul class="list-unstyled list-inline text-center">
             <li class="list-inline-item">
-                <a class="btn-floating btn-fb mx-3" data-bind="click: clickFacebook">
+                <a href="https://pt-br.facebook.com/" class="btn-floating btn-fb mx-3">
                     <i class="fab fa-facebook-f">Facebook</i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a class="btn-floating btn-tw mx-3" data-bind="click: clickTwitter">
+                <a href="https://twitter.com/login?lang=pt" class="btn-floating btn-tw mx-3">
                     <i class="fab fa-twitter">Twitter</i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a class="btn-floating btn-gplus mx-3" data-bind="click: clickGoogle">
+                <a href="https://plus.google.com/?hl=pt-BR" class="btn-floating btn-gplus mx-3">
                     <i class="fab fa-google-plus-g">Google Plus</i>
                 </a>
             </li>
             <li class="list-inline-item">
-                <a class="btn-floating btn-li mx-3" data-bind="click: clickLinkedin">
+                <a href="https://br.linkedin.com" class="btn-floating btn-li mx-3">
                     <i class="fab fa-linkedin-in">Linkedin</i>
                 </a>
             </li>
@@ -109,13 +125,10 @@
         </div>
 </div>
   </footer>
-
-  <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" charset="utf-8"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="/js/base.js" charset="utf-8"></script>
+  
+   
+    
+    
     {% block script %}
     {% endblock %}
   </body>
