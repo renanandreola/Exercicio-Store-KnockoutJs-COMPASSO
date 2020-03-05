@@ -1,0 +1,22 @@
+div.card p.p-name {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+div.card p.p-desc {
+    font-size: 13px;
+    color: solid black;
+    font-weight: bold;
+}
+
+div.card p.p-price {
+    font-size: 18px;
+    color: green;
+    font-weight: bold;
+}
+
+div.card {
+    background-color: grey;
+    border-radius: 10px;
+}

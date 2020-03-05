@@ -2,22 +2,83 @@
 
 {% block content %}
 
+<div class="container">
+  <form class="mt-4" method="post">
+    <div class="row ">
+        <div class="col-md-12">
+          <label>Produto</label>
+          <input type="text" name="product" value="" id="product" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <label>Preço</label>
+          <input type="text" name="price" value="" id="price" class="form-control">
+        </div>
+        <div class="col-md-12">
+          <label>URL do produto</label>
+          <input type="text" name="image" value="" id="image" class="form-control">
+        </div>
+        <div class="col-md-12 mt-4">
+          <button type="submit" class="btn btn-primary" name="button">Enviar</button>
+        </div>
+    </div>
+  </form>
+  <div class="jumbotron mt-4" id="result-container">
+    <h1 class="d-flex justify-content-center">Produtos</h1>
+    <div  class="mt-4"></div>
+      <ul id="result">
 
-
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://img.ibxk.com.br/2015/12/04/04194139553197.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title" data-bind="text: nameGame"></h5>
-    <p class="card-text" data-bind="text: descriptionGame"></p>
-    <p class="card-text" data-bind="text: priceGame"></p>
-    <a href="#" class="btn btn-primary float-left">Ver mais</a>
-    <a href="#" class="btn btn-primary float-right" data-bind="click: addToCart">Adicionar ao carrinho</a>
+      </ul>
+    <!--<button type="remove" onclick="remove()" id="remove" class="btn btn-danger"></button>-->
   </div>
+  <div class="jumbotron mt-4" id="total-container">
+    <h1>Total: </h1>
+    <div  class="mt-4" id="total"></div>
 </div>
 
 
+<!--
+<form>
+  <div class="col-6">
+    <label>Produto</label>
+    <input type="text" name=""  id="product" class="form-control"  data-bind="value: product">
+</div> 
+<div class="col-6">
+    <label>Descrição</label>
+    <input type="text" name="" id="description" class="form-control" data-bind="value: description">
+</div>
+<div class="col-6">
+    <label>Preço</label>
+    <input type="text" name=""  id="price" class="form-control" data-bind="value: price">
+</div>
+<div class="col-6">
+  <label>URL da Imagem</label>
+  <input type="text" name=""  id="urlImage" class="form-control" data-bind="attr: { href: url}">
+</div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="BtnCheck">
+    <label class="form-check-label" for="exampleCheck1">Adicionar</label>
+  </div>
+  <button type="submit" class="btn btn-dark" data-bind="click: send" id="BtnSend">Adicionar</button>
+</form>
+<br>
 
 
+
+
+      
+      
+
+      <div class="card" style="width: 18rem;">
+        
+        
+        <div class="card-body" data-bind="foreach: games"> 
+          <img class="card-img-top" src="https://thumbs.dreamstime.com/b/prague-czech-republic-august-room-full-s-era-old-arcade-video-games-gaming-bar-prague-czech-republic-august-detail-s-98315031.jpg" alt="Card image cap" data-bind="attr: { 'data-something': someValue }">
+          <p class="p-name card-text" data-bind="text: nameGame"></p>      
+          <p class="p-desc card-text" data-bind="text: descriptionGame"></p>        
+          <p class="p-price card-text" data-bind="text: priceGame"></p>
+        </div>
+      </div>
+-->
 
 {% endblock %}
 
@@ -26,7 +87,7 @@
 {% endblock %}
 
 {% block script %}
-  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="/js/maisjogos.js" charset="utf-8"></script>
   <link rel="stylesheet" href="styles/maisjogos.css">
 {% endblock %}

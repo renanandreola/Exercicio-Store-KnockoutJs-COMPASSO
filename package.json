@@ -21,7 +21,9 @@
   "homepage": "https://github.com/renanandreola/Loja#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "jquey": "0.0.1-security",
     "md5": "^2.2.1",
     "mongoose": "^5.9.1",
     "nodemailer": "^6.4.3",

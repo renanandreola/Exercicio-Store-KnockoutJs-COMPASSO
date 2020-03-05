@@ -96,7 +96,9 @@ app.get('/', (req, res) => {
   res.render('index.html');
 });
 
-
+app.post(',maisjogos', (req, res) => {
+  
+})
 
 
 // REQUISICAO PARA O POST NO BANCO DE DADOS
